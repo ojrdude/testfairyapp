@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fairy DB List</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+<div>
+    <a href="home" class="btn btn-primary btn-lg active" role="button">Main Page</a>
+    <a href="montage20" class="btn btn-primary btn-lg active" role="button">Montage 20 random</a>
+    <a href="montage100" class="btn btn-primary btn-lg active" role="button">Montage 1st 100</a>
+</div>
+<div>
+    New Fairy Created <br>
+    <img src="data:image/png;base64,{{ contents }}"/>
+</div>
+Boy Faires = {{ bfairies }} <br>
+Girl Faires = {{ gfairies }}<br>
+Total Faires = {{ tfairies }}<br>
+Fairy Reference Detail = <br>
+{{ fairyref }}
+<div>
+    <a href="deletedbtbl" class="btn btn-primary btn-lg active" role="button">Drop Fairy Table</a>
+    <a href="createdbtbl" class="btn btn-primary btn-lg active" role="button">Create Empty Fairy Table</a>
+    <a href="resetdb" class="btn btn-primary btn-lg active" role="button">reset existing with 100 random</a>
+    <a href="addgfairy" class="btn btn-primary btn-lg active" role="button">create new Girl Fairy</a>
+    <a href="addbfairy" class="btn btn-primary btn-lg active" role="button">create new Boy Fairy</a>
+
+</div>
+
+
+</body>
+</html>

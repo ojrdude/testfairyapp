@@ -1,8 +1,9 @@
 import urllib
 
 from fairygeneration.FairyImage import FairyImageGen
+from flask import Flask
 from flask import render_template
-from flask.app import Flask
+
 
 
 app = Flask(__name__)

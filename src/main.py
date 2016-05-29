@@ -1,14 +1,45 @@
 import urllib
 
-from fairygeneration.FairyImage import FairyImageGen
 from flask import Flask
 from flask import render_template
 
+from fairygeneration.FairyImage import FairyImageGen
+from login.loginview import LoginView
+from flask_login import LoginManager, login_required
+from login.user import User
 
 
 app = Flask(__name__)
+loginManager = LoginManager()
+loginManager.init_app(app)
+
+@loginManager.user_loader
+def loadUser(userId):
+    """
+    Callback for logging in users.
+    """
+    return User.query.get(userId)
+
+@login_required
+@app.route('/restricted')
+def restrictedPage():
+    return render_template('restricted.html')
 
 @app.route('/')
+def newHome():
+    return render_template('newhome.html')
+
+@app.route('/login', methods=['GET'])
+def login():
+    loginView = LoginView()
+    return loginView.loginPage()
+
+@app.route('/login', methods=['POST'])
+def performLogin():
+    loginView = LoginView()
+    return loginView.performLogin()
+
+@app.route('/rootOld') # Was /
 def index():
     import StringIO
 
@@ -26,7 +57,7 @@ def index():
     # return ('hello world')
 
 
-@app.route('/home')
+@app.route('/homeOld') # Was /home
 def home():
     import StringIO
 
